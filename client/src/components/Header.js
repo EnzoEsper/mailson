@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Header extends React.Component {
   renderContent() {
@@ -27,7 +28,13 @@ class Header extends React.Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <a className="left brand-logo">Mailson</a>
+          {/* if the user is logged in, whenever clicks on the logo it sends to the dashboard. If it is logged out it sends to the root/landing page */}
+          <Link
+            to={this.props.auth ? "/surveys" : "/"}
+            className="left brand-logo"
+          >
+            Mailson
+          </Link>
           <ul className="right">{this.renderContent()}</ul>
         </div>
       </nav>
