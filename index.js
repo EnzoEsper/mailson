@@ -23,7 +23,7 @@ app.use(passport.session());
 
 // inmediately calls the functions exported from the authRoutes file with the app ass argument
 require("./routes/authRoutes")(app);
-
+require("./routes/billingRoutes")(app);
 // heroku inject the env variable PORT
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
