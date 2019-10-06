@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
+import Payments from "./Payments";
 class Header extends React.Component {
   renderContent() {
     switch (this.props.auth) {
@@ -16,11 +16,14 @@ class Header extends React.Component {
         );
       // el usario esta logeado (entra por el default cuando es el objeto (user model))
       default:
-        return (
-          <li>
+        return [
+          <li key="1">
+            <Payments />
+          </li>,
+          <li key="2">
             <a href="/api/logout">Logout</a>
           </li>
-        );
+        ];
     }
   }
 
